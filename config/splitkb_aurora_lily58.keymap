@@ -17,14 +17,14 @@
         switch_pc: switch_pc {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&bt BT_SEL 0 &to 0>;
+            bindings = <&bt BT_SEL 1 &to 0>;
             label = "SWITCH_PC";
         };
 
         switch_mac: switch_mac {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&bt BT_SEL 1 &to 1>;
+            bindings = <&bt BT_SEL 0 &to 0>;
             label = "SWITCH_MAC";
         };
 
@@ -33,6 +33,13 @@
             #binding-cells = <0>;
             bindings = <&kp LG(LS(NUMBER_4))>;
             label = "MAC_SCREEN_CAP";
+        };
+
+        spotlight: spotlight {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LG(SPACE)>;
+            label = "SPOTLIGHT";
         };
     };
 
@@ -50,11 +57,11 @@
 
         mac_layer {
             bindings = <
-&kp ESC    &kp N1  &kp N2  &kp N3    &kp N4    &kp N5                         &kp N6  &kp N7    &kp N8                                &kp N9   &kp N0    &mac_screen_cap
-&kp TAB    &kp Q   &kp W   &kp F     &kp P     &kp B                          &kp J   &kp L     &kp U                                 &kp Y    &kp SEMI  &kp GRAVE
-&kp LCTRL  &kp A   &kp R   &kp S     &kp T     &kp G                          &kp M   &kp N     &kp E                                 &kp I    &kp O     &kp SQT
-&kp LSHFT  &kp Z   &kp X   &kp C     &kp D     &kp V   &kp LBKT     &kp RBKT  &kp K   &kp H     &kp COMMA                             &kp DOT  &kp FSLH  &kp RSHFT
-                           &kp LALT  &kp LGUI  &mo 2   &kp SPACE    &kp RET   &mo 3   &kp BSPC  &kp C_AC_NEXT_KEYBOARD_LAYOUT_SELECT
+&kp ESC    &kp N1  &kp N2  &kp N3    &kp N4    &kp N5                         &kp N6  &kp N7    &kp N8      &kp N9   &kp N0    &mac_screen_cap
+&kp TAB    &kp Q   &kp W   &kp F     &kp P     &kp B                          &kp J   &kp L     &kp U       &kp Y    &kp SEMI  &kp GRAVE
+&kp LCTRL  &kp A   &kp R   &kp S     &kp T     &kp G                          &kp M   &kp N     &kp E       &kp I    &kp O     &kp SQT
+&kp LSHFT  &kp Z   &kp X   &kp C     &kp D     &kp V   &kp LBKT     &kp RBKT  &kp K   &kp H     &kp COMMA   &kp DOT  &kp FSLH  &kp RSHFT
+                           &kp LALT  &kp LGUI  &mo 2   &kp SPACE    &kp RET   &mo 3   &kp BSPC  &spotlight
             >;
         };
 
@@ -77,21 +84,21 @@
 
         lower_layer {
             bindings = <
-&out OUT_TOG  &switch_pc  &switch_mac  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                                     &to 1          &to 0       &trans     &trans          &none  &trans
-&trans        &none       &none        &none         &none         &none                                            &none          &none       &none      &none           &none  &none
-&trans        &none       &kp SLASH    &kp ASTERISK  &kp EQUAL     &kp PIPE                                         &kp BACKSLASH  &kp PLUS    &kp MINUS  &kp UNDERSCORE  &none  &none
-&trans        &none       &none        &none         &none         &none         &kp LESS_THAN    &kp GREATER_THAN  &none          &none       &none      &none           &none  &trans
-                                       &trans        &trans        &trans        &none            &none             &trans         &kp DELETE  &trans
+&out OUT_TOG  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                                     &to 0          &to 1       &trans     &trans          &none  &trans
+&trans        &none         &none         &none         &none         &none                                            &none          &none       &none      &none           &none  &none
+&trans        &none         &kp SLASH     &kp ASTERISK  &kp EQUAL     &kp PIPE                                         &kp BACKSLASH  &kp PLUS    &kp MINUS  &kp UNDERSCORE  &none  &none
+&trans        &none         &none         &none         &none         &none         &kp LESS_THAN    &kp GREATER_THAN  &none          &none       &none      &none           &none  &trans
+                                          &trans        &trans        &trans        &none            &none             &trans         &kp DELETE  &trans
             >;
         };
 
         raise_layer {
             bindings = <
-&kp PRINTSCREEN  &kp F1   &kp F2   &kp F3  &kp F4  &kp F5                                                 &kp F6        &kp F7     &kp F8    &kp F9     &kp F10  &none
-&trans           &kp F11  &kp F12  &none   &none   &none                                                  &kp C_VOL_UP  &kp PG_UP  &kp UP    &kp HOME   &none    &none
-&trans           &none    &none    &none   &none   &none                                                  &kp C_MUTE    &kp LEFT   &kp DOWN  &kp RIGHT  &none    &none
-&trans           &none    &none    &none   &none   &none   &kp LEFT_PARENTHESIS    &kp RIGHT_PARENTHESIS  &kp C_VOL_DN  &kp PG_DN  &none     &kp END    &none    &trans
-                                   &trans  &trans  &trans  &none                   &none                  &trans        &kp DEL    &trans
+&none   &kp F1   &kp F2   &kp F3  &kp F4  &kp F5                                                 &kp F6        &kp F7     &kp F8    &kp F9     &kp F10  &kp PRINTSCREEN
+&trans  &kp F11  &kp F12  &none   &none   &none                                                  &kp C_VOL_UP  &kp PG_UP  &kp UP    &kp HOME   &none    &none
+&trans  &none    &none    &none   &none   &none                                                  &kp C_MUTE    &kp LEFT   &kp DOWN  &kp RIGHT  &none    &none
+&trans  &none    &none    &none   &none   &none   &kp LEFT_PARENTHESIS    &kp RIGHT_PARENTHESIS  &kp C_VOL_DN  &kp PG_DN  &none     &kp END    &none    &trans
+                          &trans  &trans  &trans  &none                   &none                  &trans        &kp DEL    &trans
             >;
         };
     };
