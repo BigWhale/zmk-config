@@ -41,6 +41,13 @@
             bindings = <&kp LG(SPACE)>;
             label = "SPOTLIGHT";
         };
+
+        caps_lock_toggle: caps_lock_toggle {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&lshift_dbl_tap &kp CAPSLOCK>;
+            label = "CAPS_LOCK_TOGGLE";
+        };
     };
 
     combos {
@@ -49,6 +56,15 @@
         clear_bt {
             bindings = <&bt BT_CLR>;
             key-positions = <52 55 0>;
+        };
+    };
+
+    behaviors {
+        lshift_dbl_tap: lshift_dbl_tap {
+            compatible = "zmk,behavior-tap-dance";
+            label = "LSHIFT_DBL_TAP";
+            #binding-cells = <0>;
+            bindings = <&kp LEFT_SHIFT>, <&kp LEFT_SHIFT>;
         };
     };
 
