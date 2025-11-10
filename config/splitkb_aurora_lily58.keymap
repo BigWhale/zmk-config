@@ -53,11 +53,11 @@
     };
 
     behaviors {
-        lshift_dbl_tap: lshift_dbl_tap {
+        td_lshift: tap_dance_left_shift {
             compatible = "zmk,behavior-tap-dance";
-            label = "LSHIFT_DBL_TAP";
             #binding-cells = <0>;
-            bindings = <&kp LEFT_SHIFT>, <&kp CAPS>;
+            tapping-term-ms = <200>;
+            bindings = <&kp LSHFT>, <&kp CAPS>;
         };
     };
 
@@ -69,7 +69,7 @@
 &kp ESC          &kp N1  &kp N2  &kp N3    &kp N4    &kp N5                         &kp N6  &kp N7    &kp N8      &kp N9   &kp N0    &mac_screen_cap
 &kp TAB          &kp Q   &kp W   &kp F     &kp P     &kp B                          &kp J   &kp L     &kp U       &kp Y    &kp SEMI  &kp GRAVE
 &kp LCTRL        &kp A   &kp R   &kp S     &kp T     &kp G                          &kp M   &kp N     &kp E       &kp I    &kp O     &kp SQT
-&lshift_dbl_tap  &kp Z   &kp X   &kp C     &kp D     &kp V   &kp LBKT     &kp RBKT  &kp K   &kp H     &kp COMMA   &kp DOT  &kp FSLH  &kp RSHFT
+&td_lshift       &kp Z   &kp X   &kp C     &kp D     &kp V   &kp LBKT     &kp RBKT  &kp K   &kp H     &kp COMMA   &kp DOT  &kp FSLH  &kp RSHFT
                                  &kp LALT  &kp LGUI  &mo 2   &kp SPACE    &kp RET   &mo 3   &kp BSPC  &spotlight
             >;
         };
@@ -83,11 +83,11 @@
             //                     | ALT  | GUI  | LOWER|  SPACE |  | ENTER | RAISE| BSPC  | GUI   |
 
             bindings = <
-&kp ESC    &kp N1  &kp N2  &kp N3    &kp N4     &kp N5                         &kp N6  &kp N7    &kp N8     &kp N9   &kp N0    &kp PRINTSCREEN
-&kp TAB    &kp Q   &kp W   &kp F     &kp P      &kp B                          &kp J   &kp L     &kp U      &kp Y    &kp SEMI  &kp GRAVE
-&kp LCTRL  &kp A   &kp R   &kp S     &kp T      &kp G                          &kp M   &kp N     &kp E      &kp I    &kp O     &kp SQT
-&kp LSHFT  &kp Z   &kp X   &kp C     &kp D      &kp V   &kp LBKT     &kp RBKT  &kp K   &kp H     &kp COMMA  &kp DOT  &kp FSLH  &kp RSHFT
-                           &kp LALT  &kp LCTRL  &mo 2   &kp SPACE    &kp RET   &mo 3   &kp BSPC  &kp RGUI
+&kp ESC     &kp N1  &kp N2  &kp N3    &kp N4     &kp N5                         &kp N6  &kp N7    &kp N8     &kp N9   &kp N0    &kp PRINTSCREEN
+&kp TAB     &kp Q   &kp W   &kp F     &kp P      &kp B                          &kp J   &kp L     &kp U      &kp Y    &kp SEMI  &kp GRAVE
+&kp LCTRL   &kp A   &kp R   &kp S     &kp T      &kp G                          &kp M   &kp N     &kp E      &kp I    &kp O     &kp SQT
+&td_lshift  &kp Z   &kp X   &kp C     &kp D      &kp V   &kp LBKT     &kp RBKT  &kp K   &kp H     &kp COMMA  &kp DOT  &kp FSLH  &kp RSHFT
+                            &kp LALT  &kp LCTRL  &mo 2   &kp SPACE    &kp RET   &mo 3   &kp BSPC  &kp RGUI
             >;
         };
 
